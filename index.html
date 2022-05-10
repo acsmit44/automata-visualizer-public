@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Automaton Visualizer</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script 
+      type="text/javascript"
+      src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js">
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <hr />
+        <h1>Automaton Visualizer</h1>
+        <p>
+          A helper web applet for visualizing Finite Automaton. <br>
+        </p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="container controls">
+        <div class="row-fluid">
+          <h3> Create Automaton </h3>
+
+          <div id="regexInstructions">
+              <p>
+                Please input a regular expression to use to generate the
+                finite automaton.  The reserved characters for the regular
+                expression are $, +, *, (, and ).  $ is the empty string (or
+                epsilon), + is the OR operator, * is the Kleene star, and 
+                parentheses group expressions.  Only alphanumeric characters
+                and the meta characters mentioned about will be accepted as
+                valid input.  All other characters will cause an error.
+              </p>
+          </div>
+
+          <p>
+              <div class="control-group">
+                <input
+                  id="regex"
+                  type="text"
+                  class="input-block-level"
+                  placeholder="Input Regex"
+                  spellcheck="false">
+                </input>
+              </div>
+          </p>
+
+          <p>
+            <div class="control-group">
+              <label for="automatonType">Select automaton type: </label>
+              <select id="automatonType">
+                <option value="NFA" default="true">NFA</option>
+                <option value="DFA">DFA</option>
+              </select>
+            </div>
+          </p>
+
+          <p>
+            <button id="createAutomaton" class="btn">Create automaton</button>
+          </p>
+
+          <p id="fsmError" class="text-error">
+          </p>
+
+          <h3> Run Visualizer on Input </h3>
+          <div id="automatonInstructions">
+            <p>
+              Please input a string to consume with the finite automaton.  The 
+              buttons are mostly self-explanatory, but I will explain each
+              purpose just to be sure:
+              <ul>
+                <li>Start - begins the automaton but does not consume input.</li>
+                <li>Progress - consume a single character and progress the automaton one state forward.</li>
+                <li>Undo - take one step back in the vizualizer.</li>
+                <li>
+                  Run to end - run the automaton automatically, consuming characters sequentially until the
+                  automaton terminates.
+                </li>
+                <li>Reset - stop the automaton and fully reset so that no characters have been consumed.</li>
+              </ul>
+            </p>
+          </div>
+
+          <p>
+            <div class="control-group">
+              <input
+                id="inputString"
+                type="text"
+                class="input-block-level"
+                placeholder="Input String"
+                spellcheck="false">
+              </input>
+            </div>
+          </p>
+
+          <p>
+            <button id="toggleStartStop" class="btn">
+              Start
+            </button>
+            <button id="inputProgress" class="btn" disabled>
+              Progress
+            </button>
+            <button id="inputUndo" class="btn" disabled>
+              Undo
+            </button>
+            <button id="inputFinish" class="btn" disabled>
+              Run to end
+            </button>
+            <button id="inputReset" class="btn" disabled>
+              Reset
+            </button>
+            <label id="inputTracker" style="display: none;"></label>
+          </p>
+
+          <p id="inputError" class="text-error">
+          </p>
+        </div>
+
+        <div id="mynetwork"></div>
+        <script src="src/visualizer.js"></script>
+
+        <hr />
+      </div>
+    </div>
+    <script src="./src/main.js"></script>
+    <script src="./src/utils.js"></script>
+    <script src="./src/nfa.js"></script>
+    <script src="./src/dfa.js"></script>
+    <script src="./src/lexer.js"></script>
+    <script src="./src/parser.js"></script>
+  </body>
+</html>

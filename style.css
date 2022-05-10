@@ -1,0 +1,68 @@
+/* Class styles */
+#inputTracker {
+    color: antiquewhite;
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20pt;
+    vertical-align: bottom;
+}
+
+/* Specific ID styles */
+#mynetwork {
+    background-color: antiquewhite;
+    border: 1px solid rgb(126, 126, 126);
+    height: 900px;
+    width: 100%;
+}
+
+/* Tag style styles */
+body {
+    background-color: dimgray;
+}
+
+hr {
+    color: antiquewhite;
+}
+
+h1, h3 {
+    color: antiquewhite;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p, li, label {
+    color: antiquewhite;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14pt;
+}
+
+select, option {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14pt;
+}
+
+mark {
+    background-color: antiquewhite;
+}
+
+canvas {
+    background-color: antiquewhite;
+    border: 1px solid rgb(126, 126, 126);
+    height: 900px;
+    width: 100%;
+}
+
+/* Specific class style overrides */
+div.container {
+    width: 90%;
+}
+
+input.input-block-level {
+    height:50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size:16pt;
+}
+
+button.btn {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14pt;
+}
